@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.Header {
+    text-align: center;
+  background-color: #121212;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.301);
+}
+.Header-logo {
+    max-width: 400px;
+}

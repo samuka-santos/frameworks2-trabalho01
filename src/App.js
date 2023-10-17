@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import './css/App.css';
+import { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    noticias: []
+  }
+  componentDidMount() {
+    fetch('https://portal-noticias-ifms.herokuapp.com/apinoticias')
+      .then(response => response.json())
+      .then(noticias => this.setState({ noticias }))
+  }
+  render() {
+    const { noticias } = this.state;
+    return (
+      <div className="App">
+        <h1>Principais notícias</h1>
+        <div class="sections">
+          {noticias.map(noticia => (
+            <div key={noticia.id_noticia} >
+              <section>
+                <h1> {noticia.titulo} </h1>
+                <p class="resumo"> {noticia.resumo} </p>
+                <p class="info"> {noticia.autor} {noticia.data_criacao} </p>
+                <p class="noticia"> {noticia.noticia} </p>
+            </section>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
