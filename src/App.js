@@ -21,7 +21,8 @@ class App extends Component {
               <section>
                 <h1> {noticia.titulo} </h1>
                 <p class="resumo"> {noticia.resumo} </p>
-                <p class="info"> {noticia.autor} {noticia.data_criacao} </p>
+                <p class="info"> {noticia.autor} </p>
+                <p class="info"> {noticia.data_criacao} </p>
                 <p class="noticia"> {noticia.noticia} </p>
             </section>
             </div>
